@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     # Path-vars
     WINEPREFIX=/wine \
     # Container-settings
-    TIMEZONE=Europe/Berlin
+    TIMEZONE=Asia/Jakarta 
 
 RUN ln -snf /usr/share/zoneinfo/$TIMEZONE /etc/localtime \
     && echo $TIMEZONE > /etc/timezone \
@@ -62,6 +62,7 @@ COPY --chmod=644 configs/steam_appid.txt /
 COPY --chmod=644 configs/ownerswhitelist.txt.example /
 COPY --chmod=644 configs/dedicatedserver.cfg.example /
 COPY --chmod=755 gosu-amd64 /usr/local/bin/gosu
+COPY --chmod=755 mod/ /
 
 RUN ln -snf /usr/share/zoneinfo/$TIMEZONE /etc/localtime \
     && echo $TIMEZONE > /etc/timezone \
